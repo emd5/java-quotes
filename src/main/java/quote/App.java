@@ -14,12 +14,9 @@ public class App {
     public static void main(String[] args) {
 
         System.out.println(new App().getGreeting());
-
-        System.out.println(getRandom());
-
-        System.out.println(getAllQuotes());
-
-        System.out.println(getSize());
+        getRandom();
+        getAllQuotes();
+        getSize();
     }
 
     public static int getSize(){
@@ -27,27 +24,15 @@ public class App {
     }
 
     public static Quote[] getAllQuotes(){
-        System.out.println("All Quotes");
 
         Quote[] quotesList = FileIO.readFile();
 
-//        for(Quote line: FileIO.readFile()){
-//            System.out.println(line);
-//        }
-
         return quotesList;
-
     }
 
     public static Quote getRandom(){
         Quote[] quoteList = FileIO.readFile();
-//        System.out.println("Today's One random quote");
         int random = new Random().nextInt(quoteList.length);
         return quoteList[random];
     }
-
-
-
-
-
 }
