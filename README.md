@@ -12,6 +12,8 @@ Liz Mahoney
 
 ## Dependencies
 
+Add the implementation line to build.gradle file:
+
 ```
 dependencies {
   implementation 'com.google.code.gson:gson:2.8.5'
@@ -19,7 +21,6 @@ dependencies {
 ```
 
 ## Getting Started 
-
 1. Make a new directory on your local `mkdir java-quotes`
 2. Run gradle command to create a java application `gradle init --type java-application`
 3. On terminal run: `idea .` to open the application on IntelliJ
@@ -27,17 +28,24 @@ dependencies {
 5. Add a `.gitignore` file and add the appropriate paths to ignore certain files and directories when pushing to github.
 6. Add a file in the resources directory (../src/main/resources/) called `recentquotes.json` and copy the provided contents.
 
-To run the application:
+***To clone:***
+
+1. Make a new directory on your local `mkdir java-quotes`, then go into the directory: `cd java-quotes`.
+2. Copy the clone link from the repo then run ` git clone https://github.com/emd5/java-quotes.git` 
+3. Open the application with IntelliJ: `idea .`, and import any gradle settings.
+
+
+***To run the application:***
 
 `./gradlew run --args 'author Chimamanda'`
 
-Testing:
+***Testing:***
 
 `./gradlew test`
 
-F
 
 ## Resources
 
 GSON User Guide - https://github.com/google/gson/blob/master/UserGuide.md
+
 Design Document Link From GSON Repo: https://github.com/google/gson/blob/master/GsonDesignDocument.md
