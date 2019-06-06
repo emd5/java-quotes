@@ -27,12 +27,18 @@ public class FileIO {
         return null;
     }
 
+    public static Quote getOneQuote(){
+        Path readFile = Paths.get("./src/main/resources/recentquotes.json");
 
-
-
-
-
-
-
-
+        try{
+            BufferedReader bufferedReader = Files.newBufferedReader(readFile);
+            Gson gson = new Gson();
+            Quote[] readQuotes = gson.fromJson(bufferedReader, Quote[].class);
+            int random = new Random().nextInt(readQuotes.length);
+            return readQuotes[random];
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
