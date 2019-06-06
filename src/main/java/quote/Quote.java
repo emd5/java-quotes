@@ -30,12 +30,11 @@ public class Quote {
     @Override
     public String toString() {
         return "Quote{" +
-                "tags=" + Arrays.toString(tags) +
-                ", author='" + author + '\'' +
-                ", likes='" + likes + '\'' +
+                "author='" + author + '\'' +
                 ", text='" + text + '\'' +
                 '}';
     }
+
 
 
 

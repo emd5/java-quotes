@@ -14,7 +14,8 @@ public class App {
     public static void main(String[] args) {
 
         System.out.println(new App().getGreeting());
-        getRandom();
+
+        FileIO.getOneQuote();
         getAllQuotes();
         getSize();
     }
@@ -24,15 +25,8 @@ public class App {
     }
 
     public static Quote[] getAllQuotes(){
-
         Quote[] quotesList = FileIO.readFile();
-
         return quotesList;
     }
 
-    public static Quote getRandom(){
-        Quote[] quoteList = FileIO.readFile();
-        int random = new Random().nextInt(quoteList.length);
-        return quoteList[random];
-    }
 }
