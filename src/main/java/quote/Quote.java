@@ -1,5 +1,6 @@
 package quote;
 
+import java.io.BufferedReader;
 import java.util.Arrays;
 
 public class Quote {
@@ -29,10 +30,7 @@ public class Quote {
      */
     @Override
     public String toString() {
-        return "Quote{" +
-                "author='" + author + '\'' +
-                ", text='" + text + '\'' +
-                '}';
+        return text + " - " + author;
     }
 
 

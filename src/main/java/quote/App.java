@@ -3,30 +3,54 @@
  */
 package quote;
 
+import java.io.FileWriter;
 import java.util.Random;
 
 public class App {
     public String getGreeting() {
 
-        return "Java Quotes";
+        return "Java Quotes\n==============";
     }
 
+    /**
+     * Entrypoint of the Application
+     *
+     * @param args user input from the cmd line
+     */
     public static void main(String[] args) {
 
         System.out.println(new App().getGreeting());
 
-        FileIO.getOneQuote();
-        getAllQuotes();
-        getSize();
+        FileIO fileIO = new FileIO();
+        System.out.println(getOneQuote(fileIO.readFile()));
+        fileIO.addToJson(getRonSwansonQuote());
+
+        if(args.length > 0){
+            getOneQuote(fileIO.readFile());
+        }
+        else{
+            System.out.println(getRonSwansonQuote());
+        }
     }
 
-    public static int getSize(){
-        return FileIO.readFile().length;
+    /**
+     * This will get one quote from the file
+     *
+     * @param quotes an array of quotes
+     * @return one random quote from the array
+     */
+    public static Quote getOneQuote(Quote[] quotes){
+        int random = new Random().nextInt(quotes.length);
+        return quotes[random];
     }
 
-    public static Quote[] getAllQuotes(){
-        Quote[] quotesList = FileIO.readFile();
-        return quotesList;
+    /**
+     * This gets the Ron Swanson quote from the reader.
+     *
+     * @return
+     */
+    public static Quote getRonSwansonQuote(){
+        FileIO fileIO = new FileIO();
+        return fileIO.getRonSwanson();
     }
-
 }

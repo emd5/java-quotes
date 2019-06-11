@@ -3,6 +3,7 @@
  */
 package quote;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -12,26 +13,36 @@ import java.util.Queue;
 import static org.junit.Assert.*;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
+
+    @Before
+    public void setup(){
+        FileIO fileIO = new FileIO();
+        App.getOneQuote(fileIO.readFile());
+    }
+
+    @Test
+    public void testAppHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull("app should have a greeting", classUnderTest.getGreeting());
     }
 
+    // Test getRonSwanson method no exception
     @Test
-    public void getSize() {
-        assertEquals("Should be 138 quotes", 138, App.getSize());
+    public void testGetRonSwanson(){
+        FileIO fileIO = new FileIO();
+        Quote quote = fileIO.getRonSwanson();
+        assertTrue("Should return a quote from Ron Swanson API", quote.toString().contains("Ron Swanson"));
     }
 
+    // Test add to json returns true when added to the file
     @Test
-    public void getAllQuotes() {
-        List<Quote> quoteList = Arrays.asList(App.getAllQuotes());
+    public void testAddToJson(){
+        FileIO fileIO = new FileIO();
+        Quote quote = new Quote(new String[]{}, "Hello Kitty", "300", "Meow Meow Meow");
 
-        Quote getAuthor = quoteList.get(136);
-        System.out.println(getAuthor);
-
-        assertTrue("Should contain Tove Jannson ", quoteList.contains(getAuthor));
-
+        assertTrue("Returns true when quote is added to the file", fileIO.addToJson(quote));
 
     }
+
 
 }
