@@ -19,14 +19,20 @@ public class FileIO {
 
     public Quote[] readFile(){
         Path readFile = Paths.get("./src/main/resources/recentquotes.json");
-
+        BufferedReader bufferedReader = null;
         try{
-            BufferedReader bufferedReader = Files.newBufferedReader(readFile);
+            bufferedReader = Files.newBufferedReader(readFile);
             Gson gson = new Gson();
             Quote[] readQuotes = gson.fromJson(bufferedReader, Quote[].class);
             return readQuotes;
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }
@@ -66,7 +72,6 @@ public class FileIO {
         return null;
     }
 
-
     /**
      * This adds the new quote to the JSON file.
      * @param inputQuote
@@ -99,7 +104,8 @@ public class FileIO {
         String json = gson.toJson(newQuotes);
 
         // write to the file
-        try (FileWriter file = new FileWriter("./src/main/resources/recentquotes.json")){
+        try {
+            FileWriter file = new FileWriter("./src/main/resources/recentquotes.json");
             file.write(json);
             System.out.println("Wrote to file");
             return true;

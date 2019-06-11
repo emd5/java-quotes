@@ -55,9 +55,6 @@ dependencies {
 - [x] When running the application, don’t read in the quotes file. Instead, make a request to an API to get a random quote.
 - [x] please do not delete your existing code, look at the very next feature task, you will still need that code
 Some examples of APIs you could choose to use:
-- [x] FavQs: sign up for a free API key (takes 2 minutes) to get random quotes
-- [x] Formismatic: no API key required, visit http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en to get random quotes
-- [x] Star Wars Quotes API
 - [x] Ron Swanson Quotes
 - [x] Rather than a Quote of the Day, please use an API that allows you to show a random quote.
 - [x] We do still have this quotes file, though, and it might still be useful! Ensure that if your app has errors in connecting to the Internet, you instead display a random quote from your file.

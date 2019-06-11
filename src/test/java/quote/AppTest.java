@@ -40,9 +40,7 @@ public class AppTest {
         FileIO fileIO = new FileIO();
         Quote quote = new Quote(new String[]{}, "Hello Kitty", "300", "Meow Meow Meow");
 
-        assertTrue("Returns true when quote is added to the file", fileIO.addToJson(quote));
+        assertEquals("Returns false when quote is in the the file ",false, fileIO.addToJson(quote));
 
     }
-
-
 }
